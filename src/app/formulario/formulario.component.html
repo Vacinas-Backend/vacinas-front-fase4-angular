@@ -1,0 +1,74 @@
+<div class="container">
+    <h1 class="display-4 font-weight-normal" id="formucadastro">
+        <b>Formulário de cadastro</b>
+    </h1>
+    <form class="d-flex flex-column align-items-center gap-3" id="cadastro-form" (submit)="handleFormSubmit($event)">
+        <div class="form-group w-75">
+            <label for="inputNome">
+                <b>Nome Completo</b>
+            </label>
+            <input type="text" class="form-control" id="inputNome" name="nome" required />
+        </div>
+        <div class="form-group w-75">
+            <label for="inputCpf">
+                <b>CPF</b>
+            </label>
+            <input type="text" class="form-control" id="inputCpf" name="cpf" required />
+        </div>
+        <div class="form-group w-75">
+            <label for="inputNascimento">
+                <b>Data de Nascimento</b>
+            </label>
+            <input type="date" class="form-control" id="inputNascimento" name="nascimento" required />
+        </div>
+        <div class="form-group w-75">
+            <label for="inputEndereco">
+                <b>Endereço</b>
+            </label>
+            <input type="text" class="form-control" id="inputEndereco" name="endereco" required />
+        </div>
+        <div class="form-group w-75">
+            <label for="inputTelefone">
+                <b>Telefone para contato</b>
+            </label>
+            <input type="text" class="form-control" id="inputTelefone" name="telefone" required />
+        </div>
+        <div class="form-group w-75">
+            <label for="inputSexo">
+                <b>Sexo</b>
+            </label>
+            <input type="text" class="form-control" id="inputSexo" name="sexo" required />
+        </div>
+        <div class="form-group w-75">
+            <label for="inputNomedoPai">
+                <b>Nome do Pai</b>
+            </label>
+            <input type="text" class="form-control" id="inputNomedoPai" name="pai" required />
+        </div>
+        <div class="form-group w-75">
+            <label for="inputNomedaMae">
+                <b>Nome da Mãe</b>
+            </label>
+            <input type="text" class="form-control" id="inputNomedaMae" name="mae" required />
+        </div>
+        <div class="form-group w-75">
+            <label for="inputGrupoPrioritario">
+                <b>Grupo Prioritário</b>
+            </label>
+            <div class="d-flex gap-3">
+                <div>
+                    <input type="radio" id="inputGrupoPrioritario" name="prioridade" value="Sim" required />
+                    <label htmlFor="inputGrupoPrioritario">Sim</label>
+                </div>
+                <div>
+                    <input type="radio" id="inputGrupoPrioritario" name="prioridade" value="Não" required />
+                    <label htmlFor="inputGrupoPrioritario">Não</label>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-warning d-inline-block m-5" id="btn">
+            Enviar Formulário
+        </button>
+    </form>
+</div>

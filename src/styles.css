@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.primary__color {
+  color: #1ac540;
+}
+
+.f-size-30 {
+  font-size: 30px !important;
+}
+.f-size-40 {
+  font-size: 40px !important;
+}
+.f-size-50 {
+  font-size: 50px !important;
+}
+#btn {
+  border-radius: 30px !important;
+  background: #ecf00e;
+  padding: 15px;
+  border: 0;
+}

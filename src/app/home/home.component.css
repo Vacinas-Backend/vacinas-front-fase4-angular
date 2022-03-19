@@ -1,0 +1,229 @@
+#fundohead {
+  background: #1ac540 !important;
+  margin: 0 !important;
+}
+
+#fundohead2 {
+  background: #0d8b28 !important;
+  margin: 0 !important;
+}
+
+#vacinadados {
+  background: #d5eaeb;
+  text-align: center;
+  color: #1ac540 !important;
+}
+
+#vacinadados2 {
+  background: #d5eaeb;
+  font-size: 25px;
+  padding: 10px;
+}
+#vacinadados3 {
+  background: #d5eaeb;
+  font-size: 25px;
+  padding: 10px;
+}
+
+#titlebloco2 {
+  font-size: 40px;
+}
+
+#texto1 {
+  font-size: 30px;
+  color: #d5eaeb;
+}
+
+.stats__cabecalho {
+  font-size: 22px;
+  color: #d5eaeb;
+}
+
+.overflow-hidden {
+  margin: 0 !important;
+}
+
+/* cronograma accordion  29/05 */
+#publico-alvo .container-accordion {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap !important;
+}
+
+#accordionCrono {
+  max-width: 920px;
+  width: 100vw;
+  position: relative;
+  margin: 0 auto;
+}
+
+#accordionCrono .card .card-header {
+  background: #207a47;
+  height: 38px;
+  padding: 6px 6px 6px 15px;
+  border-radius: 4px;
+  margin-top: 6px;
+}
+
+#accordionCrono .card .card-header button {
+  padding: 0;
+}
+
+#accordionCrono .card .card-body {
+  padding: 4px 35px 8px;
+}
+
+#accordionCrono .card .card-header .btn-link {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+#accordionCrono .card .card-header button i {
+  float: right;
+  color: #ffffff;
+  height: 18px;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+#accordionCrono .card-body .card-Title {
+  display: flex;
+  flex-direction: column;
+  background: #ecebeb;
+  border-radius: 4px;
+  height: 40px;
+  padding: 4px;
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: 8px;
+  justify-content: center;
+  text-align: center;
+}
+
+#accordionCrono .card-body .card-Title h3 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  color: var(--txtVerde);
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+#accordionCrono,
+#accordionCrono .card {
+  background: #ffffff;
+  border: 0;
+}
+
+.card-body .row-accordion-Crono {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  column-gap: 25px;
+}
+
+.card-body .col-accordion-Crono {
+  border-width: 1px;
+  border-color: rgb(204, 209, 210);
+  border-style: solid;
+  background-color: rgb(255, 255, 255);
+  min-height: 80px;
+  margin-bottom: 15px;
+  padding: 10px 24px;
+  border-radius: 4px;
+}
+
+.col-8.col-accordion-Crono {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.col-8.col-accordion-Crono p {
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgb(204, 209, 210);
+  margin-bottom: 6px;
+}
+
+.col-8.col-accordion-Crono p:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+.col-4.col-accordion-Crono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#accordionCrono .col-accordion-Crono.col-data,
+#accordionCrono .col-accordion-Crono.col-data p {
+  color: var(--txtVerde);
+  text-align: center;
+
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+#accordionCrono .col-accordion-Crono.col-data p {
+  margin-bottom: 0;
+}
+
+#accordionCrono .col-accordion-Crono.col-grupo {
+  font-family: "Open Sans", sans-serif;
+  color: #404040;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: left;
+}
+
+#accordionCrono .card-body .footer-card {
+  height: 48px;
+  /* background-image: url(../images/back-traco-grupos.jpg); */
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.flex-fill {
+  -ms-flex: 1 1 auto !important;
+  flex: 1 1 auto !important;
+}
+
+@media (max-width: 991px) {
+  .container-accordion #accordionCrono {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  #accordionCrono .card .card-body {
+    padding: 15px;
+  }
+  .card-body .col-accordion-Crono {
+    padding: 10px 16px;
+  }
+  .col-4.col-accordion-Crono {
+    max-width: 70%;
+  }
+  .col-8.col-accordion-Crono {
+    max-width: 60%;
+  }
+
+  .card-body .row-accordion-Crono {
+    column-gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-body .row-accordion-Crono {
+    column-gap: 12px;
+  }
+
+  .container-accordion #accordionCrono {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}

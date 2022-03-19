@@ -1,0 +1,16 @@
+#vacinadados {
+  background: #d5eaeb;
+  text-align: center;
+  color: #1ac540 !important;
+}
+.header {
+  text-decoration: none;
+  display: block;
+}
+
+.site-header {
+  background: #e5e9e6 !important;
+}
+.site-header #fundohead3 {
+  margin: 0 !important;
+}

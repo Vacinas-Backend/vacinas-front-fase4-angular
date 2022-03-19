@@ -1,27 +1,21 @@
-# VacinaAngular
+# Front end do Projeto Vacina da Fase 3 - FIAP
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+Neste projeto foram é possível criar dados de um paciente e resgatar esses dados:
 
-## Development server
+## Preparando o Ambiente
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Antes de tudo é necessário fazer o download do [Código do Backend](https://github.com/Vacinas-Backend/vacinas-back) em Spring Boot e rodá-lo. No README deste projeto estão as instruções para rodá-lo.
 
-## Code scaffolding
+## Criar cadastro
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Para criar informações sobre um paciente, basta clicar em alguns dos seguintes botões:
 
-## Build
+- População Geral;
+- Profissionais de Transporte;
+- Profissionais de Educação.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Todos esses botões levam para a tela de cadastro onde o paciente será adicionado ao Banco de Dados.
 
-## Running unit tests
+## Ler informações do seu cadastro
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Para ler as informações que você cadastrou é necessário apenas clicar no botão "Já sou Cadastrado", onde será disparado um modal com as informações inseridas.

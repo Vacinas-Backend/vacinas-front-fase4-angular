@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 interface FormElements extends HTMLFormControlsCollection {
   nome: HTMLInputElement;
   cpf: HTMLInputElement;
+  email: HTMLInputElement;
   nascimento: HTMLInputElement;
   endereco: HTMLInputElement;
   telefone: HTMLInputElement;
@@ -17,6 +18,7 @@ interface FormElements extends HTMLFormControlsCollection {
 interface VacinaFormData {
   nome: string;
   cpf: string;
+  email: string;
   data_nasc: string;
   endereco: string;
   telefone: string;
@@ -43,6 +45,7 @@ export class FormularioComponent implements OnInit {
     function getFormInputData(formElements: FormElements) {
       const nome = formElements.nome.value;
       const cpf = formElements.cpf.value.replace(/\D/g, '');
+      const email = formElements.email.value.trim();
       const dataDeNascimento = formElements.nascimento.value;
       const endereco = formElements.endereco.value;
       const telefone = formElements.telefone.value;
@@ -54,6 +57,7 @@ export class FormularioComponent implements OnInit {
       return {
         nome,
         cpf,
+        email,
         data_nasc: dataDeNascimento,
         endereco,
         telefone,
@@ -72,11 +76,13 @@ export class FormularioComponent implements OnInit {
 
     const form = event.currentTarget as HTMLFormElement;
     if (!form) return false;
+    const formData = this.getFormData(form);
+    const {cpf, email} = formData;
 
     const formIsValid = form.checkValidity();
+    const cpfIsValid = this.validateCpf(cpf)
 
-    if (formIsValid) {
-      const formData = this.getFormData(form);
+    if (formIsValid && cpfIsValid) {
       const response = this.registerPatientInfo(formData);
 
       const requestWasSuccessful = Boolean(response);
@@ -100,12 +106,50 @@ export class FormularioComponent implements OnInit {
       var status = false;
     }
 
+    this.sendEmail(email)
+
     Swal.fire(
       modalTitle,
       modalTextMarkup,
       status == true ? 'success' : 'error'
     );
     return status;
+  }
+
+  async validateCpf(cpf:string): Promise<boolean> {
+    const URL = 'http://localhost:8090/cpf';
+    try {
+      const settings = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ cpf }),
+      };
+      const response = await fetch(URL, settings);
+      console.log({response})
+      return response.ok ? true : false;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  async sendEmail(email:string): Promise<boolean> {
+    const URL = `http://localhost:8090/send-email/email/?email=${email}`;
+    try {
+      const settings = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      };
+      const response = await fetch(URL, settings);
+      console.log({response})
+      return response.ok ? true : false;
+    } catch (error) {
+      return false;
+    }
   }
 
   async registerPatientInfo(formData: VacinaFormData) {

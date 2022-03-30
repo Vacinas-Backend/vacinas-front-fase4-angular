@@ -13,7 +13,8 @@
             <label for="inputCpf">
                 <b>CPF</b>
             </label>
-            <input type="text" class="form-control" id="inputCpf" name="cpf" required />
+            <input type="text" class="form-control" id="inputCpf" name="cpf" (change)="handleCpfValidation($event)"
+                required />
         </div>
         <div class="form-group w-75">
             <label for="inputEmail">

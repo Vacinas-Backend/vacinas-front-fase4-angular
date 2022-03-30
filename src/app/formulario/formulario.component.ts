@@ -77,12 +77,11 @@ export class FormularioComponent implements OnInit {
     const form = event.currentTarget as HTMLFormElement;
     if (!form) return false;
     const formData = this.getFormData(form);
-    const {cpf, email} = formData;
+    const { email } = formData;
 
     const formIsValid = form.checkValidity();
-    const cpfIsValid = this.validateCpf(cpf)
 
-    if (formIsValid && cpfIsValid) {
+    if (formIsValid) {
       const response = this.registerPatientInfo(formData);
 
       const requestWasSuccessful = Boolean(response);
@@ -106,7 +105,7 @@ export class FormularioComponent implements OnInit {
       var status = false;
     }
 
-    this.sendEmail(email)
+    this.sendEmail(email);
 
     Swal.fire(
       modalTitle,
@@ -116,7 +115,30 @@ export class FormularioComponent implements OnInit {
     return status;
   }
 
-  async validateCpf(cpf:string): Promise<boolean> {
+  async handleCpfValidation(event: Event) {
+    if (event) {
+      const targetInput = <HTMLInputElement>event?.currentTarget;
+      const cpf = targetInput?.value;
+      const submitFormButton: HTMLButtonElement | null | undefined = targetInput
+        .closest('form')
+        ?.querySelector('button');
+
+      if (cpf && submitFormButton) {
+        const isValid = await this.validateCpf(cpf);
+
+        if (isValid) {
+          alert('CPF é válido!');
+        } else {
+          alert('CPF é inválido!');
+        }
+      }
+    }
+  }
+
+  async validateCpf(cpf: string | null): Promise<boolean> {
+    console.log('hey', cpf);
+    if (!cpf) return false;
+
     const URL = 'http://localhost:8090/cpf';
     try {
       const settings = {
@@ -127,14 +149,14 @@ export class FormularioComponent implements OnInit {
         body: JSON.stringify({ cpf }),
       };
       const response = await fetch(URL, settings);
-      console.log({response})
-      return response.ok ? true : false;
+      const convertedResponse = await response.json();
+      return convertedResponse.isValid;
     } catch (error) {
       return false;
     }
   }
 
-  async sendEmail(email:string): Promise<boolean> {
+  async sendEmail(email: string): Promise<boolean> {
     const URL = `http://localhost:8090/send-email/email/?email=${email}`;
     try {
       const settings = {
@@ -145,7 +167,7 @@ export class FormularioComponent implements OnInit {
         body: JSON.stringify({ email }),
       };
       const response = await fetch(URL, settings);
-      console.log({response})
+      console.log({ response });
       return response.ok ? true : false;
     } catch (error) {
       return false;

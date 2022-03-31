@@ -139,7 +139,7 @@ export class FormularioComponent implements OnInit {
     console.log('hey', cpf);
     if (!cpf) return false;
 
-    const URL = 'http://localhost:8090/cpf';
+    const URL = 'https://vacina-backend.herokuapp.com/cpf';
     try {
       const settings = {
         method: 'POST',
@@ -157,7 +157,7 @@ export class FormularioComponent implements OnInit {
   }
 
   async sendEmail(email: string): Promise<boolean> {
-    const URL = `http://localhost:8090/send-email/email/?email=${email}`;
+    const URL = `https://vacina-backend.herokuapp.com/send-email/email/?email=${email}`;
     try {
       const settings = {
         method: 'POST',
@@ -175,7 +175,7 @@ export class FormularioComponent implements OnInit {
   }
 
   async registerPatientInfo(formData: VacinaFormData) {
-    const URL = 'http://localhost:8090/vacinas';
+    const URL = 'https://vacina-backend.herokuapp.com/vacinas';
     try {
       const settings = {
         method: 'POST',

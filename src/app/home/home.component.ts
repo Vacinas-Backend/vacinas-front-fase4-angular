@@ -97,7 +97,7 @@ export class HomeComponent implements OnInit {
 
   async getPatientInfo(): Promise<UserInfo | UserInfo[] | boolean> {
     try {
-      const URL = 'http://localhost:8090/vacinas';
+      const URL = 'https://vacina-backend.herokuapp.com/vacinas';
 
       const response = await fetch(URL);
       const convertedResponse = await response.json();
